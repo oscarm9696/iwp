@@ -5,6 +5,31 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Building 1
+    second: {fileID: 2100000, guid: 3efe6617771023045b7bc8fbbc78871f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Building 2
+    second: {fileID: 2100000, guid: 411ed2dee7466984581644939361c594, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Building 3
+    second: {fileID: 2100000, guid: ba4ead3c49600604f8b8a41f180e7d05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rastMat
+    second: {fileID: 2100000, guid: f0cbe6fcf56d2cc4cbc1bd2045e28c49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: reservoir
+    second: {fileID: 2100000, guid: 2e67cc59c67cb9d4abc3bb69b107b121, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: GOOGLE_SAT_WM
