@@ -26,14 +26,13 @@ public class TimeHandler : MonoBehaviour
 
     public MoveCar mC;
 
-    public Animator anim1;
-    public Animator anim2;
+    Animator anim;
 
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -69,10 +68,8 @@ public class TimeHandler : MonoBehaviour
     {
         
         Debug.Log("rewind");
-        anim1.SetFloat("Direction", -1);
-        anim1.Play("Our_Car_Scene_1", -1, float.NegativeInfinity);
-        anim2.SetFloat("Direction", -1);
-        anim2.Play("Intercepting_Van_Scene_1", -1, float.NegativeInfinity);
+        anim.SetFloat("Direction", -1);
+        anim.Play("Our_Car_Scene_1", -1, float.NegativeInfinity);
 
     }
    
@@ -84,10 +81,8 @@ public class TimeHandler : MonoBehaviour
     public void FastF()
     {
         isFastF = true;
-        anim1.SetFloat("Direction", 1);
-        anim1.Play("Our_Car_Scene_1", 1, float.PositiveInfinity);
-        anim2.SetFloat("Direction", 1);
-        anim2.Play("Intercepting_Van_Scene_1", 1, float.NegativeInfinity);
+        anim.SetFloat("Direction", 1);
+        anim.Play("Our_Car_Scene_1", 1, float.PositiveInfinity);
     }
     public void PauseScene()
     {
