@@ -26,13 +26,11 @@ public class TimeHandler : MonoBehaviour
 
     public MoveCar mC;
 
-    Animator anim;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = gameObject.GetComponent<Animator>();
+ 
     }
 
     // Update is called once per frame
@@ -43,7 +41,7 @@ public class TimeHandler : MonoBehaviour
     }
     private void LateUpdate()
     {
-        /*if (isRewind)
+        if (isRewind)
         {
             pointerDown();
         }
@@ -52,7 +50,7 @@ public class TimeHandler : MonoBehaviour
             pointerUp();
            // mC.MoveObject();
 
-        }*/
+        }
     }
 
 
@@ -66,13 +64,24 @@ public class TimeHandler : MonoBehaviour
 
     public void Rewind()
     {
+        isRewind = true;
+        if (pos2.Count > 0 && pos1.Count > 0){
+            carT[0].position = pos2[0];
+            carT[1].position = pos1[1];
+            pos2.RemoveAt(0);
+            pos1.RemoveAt(0);
+        }
+        else
+        {
+            StopRewind(); 
+        }
         
-        Debug.Log("rewind");
-        anim.SetFloat("Direction", -1);
-        anim.Play("Our_Car_Scene_1", -1, float.NegativeInfinity);
-
     }
-   
+    public void StopRecord()
+    {
+        isRecording = false;
+    }
+
     public void StopRewind()
     {
         isRewind = false;
@@ -81,33 +90,33 @@ public class TimeHandler : MonoBehaviour
     public void FastF()
     {
         isFastF = true;
-        anim.SetFloat("Direction", 1);
-        anim.Play("Our_Car_Scene_1", 1, float.PositiveInfinity);
     }
     public void PauseScene()
     {
         isPause = true;
+        Time.timeScale = 0;
         pauseBtn.gameObject.SetActive(false);
         playBtn.gameObject.SetActive(true);
-        Time.timeScale = 0;
-
+        StopRecord();   
     }
     public void PlayScene()
     {
         isPlay = true;
+        Time.timeScale = 1;
         pauseBtn.gameObject.SetActive(true);
         playBtn.gameObject.SetActive(false);
-        Time.timeScale = 1;
     }
 
     public void pointerDown()
     {
         Rewind();
+        StopRecord();
         Debug.Log("pointer down");
     }
     public void pointerUp()
     {
-        PauseScene();
+        Record();
+        StopRewind();
         Debug.Log("pointer up");
     }
 
