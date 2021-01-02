@@ -28,6 +28,8 @@ public class TimeHandler : MonoBehaviour
 
     Animator anim;
 
+    public Dropdown myDropdown;
+
 
     // Start is called before the first frame update
     void Start()
@@ -111,4 +113,9 @@ public class TimeHandler : MonoBehaviour
         Debug.Log("pointer up");
     }
 
+
+    public void HandleDropDown()
+    {
+        //myDropdown.AddOptions(List<>)
+    }
 }
